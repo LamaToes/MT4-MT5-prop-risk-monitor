@@ -1,163 +1,303 @@
-MT4/MT5 Prop Style Risk Monitor - Safety Pack Edition
-A professional risk management indicator for MetaTrader 4 / MetaTrader 5 that shows real money at risk based on Stop Loss, not guesses.
-Built for traders who take risk seriously, especially prop firm traders.
-What This Indicator Does
-This tool calculates how much money you will lose if all Stop Losses are hit across your open trades.
-It displays:
+PROPstyle Risk Monitor - MT4/MT5
+Professional risk management indicator that calculates real money at risk based on Stop Loss levels - not guesses.
+Built for prop traders and anyone serious about risk management.
 
-Total % risk based on your account reference size
-Total money at risk in dollars
-Risk per individual trade ($ and %)
-Clean vertical trade list with color-coded warnings
-Comprehensive safety alerts and limits
-Daily loss tracking for prop firm rules
-Trailing drawdown monitoring
-Overflow protection if you have many trades open
+📊 What This Does
+Shows your actual dollar and percentage risk across all open positions in real-time. No spreadsheets, no mental math, no assumptions.
+The indicator analyzes your stop loss placement and calculates exactly how much money you'll lose if all stops are hit.
 
-Why This Is Different
-Most traders calculate risk before entering. This shows your actual live risk after execution.
-No spreadsheets. No mental math. No assumptions.
-This isn't just a display tool - it's a complete safety system that actively monitors and alerts you when you're approaching dangerous territory.
-Core Features
-Risk Calculation & Display
+✨ Core Features
+Real-Time Risk Calculation
 
-SL-based money risk calculation - Real dollar amounts, not guesses
-Per-trade risk breakdown - See individual position risk in $ and %
-Risk % color system:
+Total Portfolio Risk - See your combined risk across all positions in $ and %
+Per-Trade Breakdown - Each position shows individual risk with color coding
+Live Updates - Recalculates instantly as positions change
 
-🟢 Green → Safe risk (≤1%)
-🟡 Yellow → Caution (1-2%)
-🟠 Orange → Elevated (2-5%)
-🔴 Red → High risk (>5%)
+Why it matters: Know your exact exposure before it's too late. No more accidentally over-risking your account.
 
+Smart Position Detection
+Break-Even Detection (NEW)
 
-Vertical trade column layout - Shows up to 5 trades + overflow counter
+Automatically detects when SL = Entry price (±2 pips)
+Shows 0% risk for break-even positions
+These trades are excluded from total risk calculation
 
-Balance Tracking Options
+Profit-Locked Detection (NEW)
 
-Fixed Balance Mode - Set a reference balance manually
-Track Balance Down Only - Updates only when balance drops (perfect for prop challenges)
-Auto Track Balance - Automatically follows your live balance
-Equity vs Balance - Choose to track equity (includes floating P/L) for more accurate risk
+Identifies positions with SL beyond entry (trailing into profit)
+Displays in GREEN with "+" sign
+Not counted toward your risk total
+Example: #12345 EURUSD $47.25 (+0.52%)
 
-Safety & Alert System
+Missing Stop Loss Warning
 
-⚠️ Missing Stop Loss Detection - Shows trades without SL (excluded from calculations)
-🚨 Max Total Risk Alert - Warning when portfolio risk exceeds your threshold
-🚨 Per-Trade Risk Alert - Warns if any single trade risks too much
-🚨 Position Count Monitor - Alerts when you have too many open positions
-Audio & Visual Alerts - Optional sound/popup notifications
+Shows count of trades without SL in red
+Excludes these from calculations (unlimited risk)
+Prevents false sense of security
 
-Prop Firm Compliance Tools
+Why it matters: Accurately separates risk from profit. When you trail stops into profit, your risk drops to zero - the indicator reflects this.
 
+Balance Tracking Modes
+Choose how the indicator tracks your account size:
+Fixed Balance (Default)
+
+Uses your manually set reference balance
+Never changes automatically
+Best for: Most traders, manual control
+
+Track Balance Down Only
+
+Updates only when balance drops below reference
+Never increases above your initial setting
+Best for: Prop challenges where you can't reset starting balance after losses
+
+Auto Track Balance
+
+Always uses current live balance/equity
+Updates automatically with every trade
+Best for: Live funded accounts, adaptive risk management
+
+Use Equity Instead of Balance
+
+Includes floating profit/loss in calculations
+More accurate during active trading
+Best for: Day traders, scalpers, multiple open positions
+
+Why it matters: Different trading scenarios need different tracking. Prop challenges have strict rules - this keeps you compliant.
+
+Prop Firm Safety Tools
 Daily Loss Limit Tracker
 
-Set limits in % or fixed dollar amount
-Custom session reset time (e.g., "17:00" for NY close)
-Alerts before you breach prop firm rules
-
+Monitors loss from session start
+Set limit in % or fixed dollar amount
+Custom reset time (e.g., "17:00" for NY close, "00:00" for midnight)
+Alert when limit reached - prevents rule violations
 
 Trailing Drawdown Monitor
 
-Tracks from highest balance/equity
-Critical for prop firm trailing drawdown rules
-Configurable in % or $
+Tracks drawdown from highest balance/equity
+Critical for prop firm trailing DD rules
+Set in % or $ amount
+Alert when approaching limit
+
+Why it matters: Prop firms have strict daily loss and drawdown limits. One violation = challenge failed. This tracks them automatically so you don't have to.
+
+Alert & Warning System
+Configurable Risk Alerts
+
+Max total portfolio risk % threshold
+Max per-trade risk % threshold
+Max open positions limit
+Audio and visual alerts when exceeded
+
+Color-Coded Display
+
+🟢 Green: ≤1% risk (safe) or profit-locked
+🟡 Yellow: 1-2% risk (caution)
+🟠 Orange: 2-5% risk (elevated)
+🔴 Red: >5% risk or limit exceeded
+
+Real-Time Warnings
+
+Total risk exceeded
+Too many open positions
+Missing stop losses
+Single trade risk too high
+Balance not set
+
+Status Indicator
+
+Shows "All safety checks passed" in green when safe
+Displays active warnings in red/orange
+
+Why it matters: Catch problems before they destroy your account. Alerts give you time to act, not react.
+
+🎯 Who This Helps
+Prop Traders
+
+✅ Stay within daily loss limits automatically
+✅ Track trailing drawdown rules
+✅ Never violate challenge rules by accident
+✅ Pass evaluations safely and consistently
+
+Swing Traders
+
+✅ Manage multi-position exposure over days
+✅ See total portfolio risk at a glance
+✅ Avoid over-concentration in correlated pairs
+
+Day Traders & Scalpers
+
+✅ Control stacked entries in real-time
+✅ Use equity tracking for live floating P/L
+✅ Prevent overtrading with position limits
+
+Anyone Managing Risk
+
+✅ See risk in dollars, not pips
+✅ Verify position sizing before entry
+✅ Build disciplined risk management habits
 
 
+📥 Installation
+MT4
 
-Professional Display
+Download PROPstyle_SafetyPack.mq4
+Open MT4 → File → Open Data Folder
+Navigate to: MQL4 → Indicators
+Copy the .mq4 file here
+Restart MT4 or click Refresh in Navigator
+Navigator (Ctrl+N) → Indicators → Custom
+Drag PROPstyle to your chart
+Set ReferenceBalance to your account size (REQUIRED)
 
-Clean, organized vertical layout
-Color-coded warnings for instant visual feedback
-Status indicator shows "All safety checks passed" when safe
-Lightweight, no lag
-Works on any broker, any symbol
+MT5
 
-Installation
-
-Copy file to: MQL4 → Indicators
-Compile in MetaEditor
-Attach to chart
-Configure settings:
-
-Set ReferenceBalance (ex: 100000)
-Enable desired safety features
-Set risk thresholds and limits
+Download PROPstyle_SafetyPack_MT5.mq5
+Open MT5 → File → Open Data Folder
+Navigate to: MQL5 → Indicators
+Copy the .mq5 file here
+Restart MT5 or press Ctrl+N
+Navigator → Indicators → Custom
+Right-click PROPstyle → Attach to chart
+Set ReferenceBalance to your account size (REQUIRED)
 
 
-Done!
+⚙️ Quick Setup Guide
+Required Setting
+ReferenceBalance - Your account size or prop firm starting balance
 
-Configuration Guide
-Essential Settings
+Example: 100000 for $100k account
+Must be set or indicator won't work properly
 
-ReferenceBalance - Your account size or prop firm starting balance (defaults to 0 - you must set this!)
-PanelCorner - 0 = Top Left, 2 = Bottom Left
+Panel Position
+PanelCorner - Where the display appears on chart
 
-Balance Tracking
+MT4: 0 = Top Left, 2 = Bottom Left
+MT5: Dropdown menu (Top/Bottom, Left/Right)
 
-TrackBalanceDown - Only updates if balance goes below reference (great for prop challenges)
-AutoTrackBalance - Always uses current live balance
-UseEquityInsteadOfBalance - Use equity for more accurate active trading risk
+Recommended Settings for Prop Traders
+ReferenceBalance: [Your challenge amount]
+TrackBalanceDown: true (locks starting balance)
+MaxTotalRiskPercent: 1.0 (conservative)
+TrackDailyLoss: true
+DailyLossLimitPercent: 5.0 (or your firm's limit)
+TrackTrailingDrawdown: true
+TrailingDrawdownPercent: 10.0 (or your firm's limit)
+SessionResetTime: "17:00" (NY close)
+EnableAlerts: true
+Recommended Settings for Live Trading
+ReferenceBalance: [Your account size]
+AutoTrackBalance: true (tracks live balance)
+UseEquityInsteadOfBalance: true (includes floating P/L)
+MaxTotalRiskPercent: 2.0
+EnableAlerts: true
 
-Risk Limits
+🔧 All Settings Explained
+Balance Tracking:
 
-MaxTotalRiskPercent - Alert threshold for total portfolio risk (default: 5%)
-MaxPerTradeRiskPercent - Alert threshold per trade (default: 2%)
-MaxOpenPositions - Maximum number of concurrent trades (default: 10)
+ReferenceBalance - Starting account size (required)
+TrackBalanceDown - Only update if balance drops
+AutoTrackBalance - Always use current balance
+UseEquityInsteadOfBalance - Include floating P/L
 
-Alerts
+Risk Limits:
 
-EnableAlerts - Turn on/off audio and popup alerts
-ShowTradesWithoutSL - Display warning for positions missing stop loss
+MaxTotalRiskPercent - Alert threshold for total risk
+MaxPerTradeRiskPercent - Alert threshold per position
+MaxOpenPositions - Max number of concurrent trades
 
-Daily Loss Tracking
+Alerts:
 
-TrackDailyLoss - Enable daily loss limit monitoring
-DailyLossLimitPercent - Daily loss limit in % (default: 5%)
-DailyLossLimitDollar - Fixed $ limit (0 = use % only)
-SessionResetTime - When to reset daily tracking (format: "HH:MM")
+EnableAlerts - Turn audio/visual alerts on/off
+ShowTradesWithoutSL - Display missing SL warning
 
-Trailing Drawdown
+Daily Loss Tracking:
 
-TrackTrailingDrawdown - Enable trailing drawdown monitoring
-TrailingDrawdownPercent - Limit in % from highest balance (default: 10%)
-TrailingDrawdownDollar - Fixed $ limit (0 = use % only)
+TrackDailyLoss - Enable daily loss monitoring
+DailyLossLimitPercent - Daily loss limit in %
+DailyLossLimitDollar - Daily loss limit in $ (0 = use % only)
+SessionResetTime - When to reset daily tracking (HH:MM format)
 
-Who This Helps Most
-Prop traders — Stay within daily & max loss limits, pass challenges safely
-Swing traders — Manage multi-position exposure across days
-Scalpers — Control stacked entries and avoid overtrading
-Challenge takers — Track drawdown rules and daily limits automatically
-Any serious trader — See risk in dollars, not pips, with comprehensive safety monitoring
-Use Cases
-✅ Prop Firm Challenges - Never breach rules accidentally
-✅ Multi-Position Management - See total exposure instantly
-✅ Risk Compliance - Stay within your trading plan limits
-✅ Position Sizing Verification - Confirm your risk is what you intended
-✅ Daily Stop Management - Know when to stop trading for the day
-Why You Need This
-If you've ever:
+Trailing Drawdown:
 
-Blown an account by stacking too many trades
-Failed a prop challenge by exceeding daily loss limits
-Lost track of your total risk exposure
-Taken trades without proper stop losses
-Wished you had a warning system before things went wrong
+TrackTrailingDrawdown - Enable trailing DD monitoring
+TrailingDrawdownPercent - Limit in % from highest balance
+TrailingDrawdownDollar - Limit in $ (0 = use % only)
 
-This indicator is for you.
-Technical Details
 
-Lightweight performance - no chart lag
-Works with all brokers and symbols
-Compatible with MT4 build 600+
-Real-time risk calculation
-Persistent session tracking across restarts
+📸 Example Display
+Total Risk: 0.51% of 100000
+Total Risk: $511.05
+Tracking Balance: $100000.00 [Fixed]
+Open Positions: 5 / 10
 
-Author
+#558145879 BTCUSD $14.65 (0.01%)
+#558145933 BTCUSD $12.31 (0.01%)
+#558145963 EURUSD $46.95 (+0.05%)  ← Profit locked (green)
+#558145983 GBPUSD $4.31 (0.00%)
+#558146279 XAUUSD $5.37 (0.01%)
+
+Daily Loss: $250.00 (0.25%) / Limit: $5000.00
+Trailing DD: $0.00 (0.00%) / Limit: $10000.00
+
+All safety checks passed
+
+= PROPstyle=by LamaToes
+
+🆕 Latest Updates
+v2.0 - Break-Even & Profit Lock Detection
+
+✨ Break-even positions (SL = Entry ±2 pips) now show 0% risk
+✨ Profit-locked positions (SL beyond entry) display in green with "+"
+✨ Smart risk calculation excludes both BE and profit-locked trades
+🐛 Fixed: Indicator objects now properly delete when removed from chart
+🐛 Fixed: Removed all emojis that displayed as "??" in MT4/MT5
+
+
+❓ FAQ
+Q: Why does my total risk show 0% when I have trades open?
+A: Your stops are either at break-even or in profit. The indicator correctly shows 0% risk.
+Q: I set a stop loss but it's not showing in the indicator.
+A: Check if your SL is at break-even (±2 pips from entry). These are excluded as they have no risk.
+Q: Can I use this on multiple charts?
+A: Yes, but each chart instance uses the same settings. Only attach to one chart per account.
+Q: Does this work with all brokers?
+A: Yes, works with any MT4/MT5 broker and all symbols.
+Q: How accurate is the risk calculation?
+A: 100% accurate based on your stop loss placement. Uses actual tick values from your broker.
+
+🤝 Community & Support
+
+Reddit: r/PropRiskManagement
+Issues: Use GitHub or Reddit Issues for bug reports
+Features: Request features via GitHub or Reddit
+
+
+📜 License
+MIT License - Free to use, modify, and distribute.
+If you share or fork this project, please credit the original author.
+
+👨‍💻 Author
 Created by LamaToes
-If you share or modify this tool, please give credit to the original author.
-License
-Free to use under MIT License.
 Built by traders, for traders.
 
-⚠️ Risk Warning: This indicator is a tool, not financial advice. Trading involves substantial risk. Always use proper risk management and never risk more than you can afford to lose.
+⚠️ Disclaimer
+This indicator is a risk monitoring tool, not financial advice. Trading involves substantial risk of loss. Always:
+
+Use proper risk management
+Never risk more than you can afford to lose
+Verify all calculations independently
+Test on demo accounts first
+
+The indicator shows risk based on current stop loss placement - actual losses may vary due to slippage, gaps, or broker execution.
+
+🌟 Show Your Support
+If this indicator helps your trading:
+
+⭐ Star this repository
+🔄 Share with other traders
+💬 Join the community at r/PropRiskManagement
+🐛 Report bugs or suggest features
+
+Trade safer. Trade smarter.
